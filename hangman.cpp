@@ -15,12 +15,18 @@ std::vector<std::string> hint = std::vector<std::string>(8, "_");    // Note tha
 
 bool getHint(std::string secret, char guessLetter)
 {
-    // TODO: Write code that updates the hint based on the secret
-    // and based on the guess letter.  Use the hint from above.
-
-    // The procedure should return true if the letter was in the word,
-    // and return false if the letter was not in the word.
-    return false;
+    bool correctGuess = false;
+    int index = 0;
+    while (index < length(hint))
+    {
+        if (secret[index] == guessLetter)
+        {
+            hint[index] = guessLetter;
+            correctGuess = true;
+        }
+        index = index + 1;
+    }   
+    return correctGuess;
 }
 
 
@@ -60,27 +66,36 @@ int main()
 
     std::cout << "Welcome to Hangman!\n";
     
-    while (true)    // TODO: update this condition to run when the game should be played
+    while (wordGuess != answer && lives > 0) 
     {
         std::cout << "\nEnter your guess: ";
         std::cin >> letterGuess;
         
-        // TODO: Write code that displays the hint; you can either manually display or use the
-        // custom display procedure that I wrote for you
-        // TODO: Display hangman person if applicable; or you can display the number of lives left
+        
         if (getHint(answer, letterGuess) == false)
         {
             lives = lives - 1;
-            // TODO: Update hangman person if you are using a hangman person
         }
+        std::cout << "Number of lives:" << lives << std::endl;
+        display(hint);
         
-
-        // TODO: Write code below that asks you whether you want to guess the word
-        // and allow the user to guess the word using the variable wordGuess
         std::cout << "Would you like to guess the word (y/n)?\n";
-        
+        std::string choice;
+        std::cin >> choice;
+        if (choice == "y") {
+            std::cout << "Guess the word\n";
+            std::cin >> wordGuess;
+
+            if (wordGuess != answer) {
+                lives = lives -1;
+            }
+        }
     }
 
-    std::cout << "Some winning or losing message here";
+    if (lives <= 0) {
+        std::cout << "Game Over" << std::endl;
+    } else {
+        std::cout << "You Win!" << std::endl;
+    }
     return 0;
 }
