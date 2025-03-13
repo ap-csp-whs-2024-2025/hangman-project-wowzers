@@ -62,7 +62,7 @@ int main()
     std::string answer = wordList[rand() % length(wordList)];
     char letterGuess;
     std::string wordGuess = "";
-    int lives = 10;
+    int lives = 6;
 
     std::cout << "Welcome to Hangman!\n";
     
@@ -78,7 +78,81 @@ int main()
         }
         std::cout << "Number of lives:" << lives << std::endl;
         display(hint);
-        
+
+        if (lives == 6) {
+		std::cout << "_________________" << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+        std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+	} if (lives == 5) {
+		std::cout << "_________________" << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        0      " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+        std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+	} if (lives == 4) {
+		std::cout << "_________________" << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        0      " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+        std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+	} if (lives == 3 ) {
+		std::cout << "_________________" << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        0      " << std::endl;
+		std::cout << " |       /|      " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+        std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+	} if (lives == 2 ) {
+		std::cout << "_________________" << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        0      " << std::endl;
+		std::cout << " |       /|\"    " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+        std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+	} if (lives == 1 ) {
+		std::cout << "_________________" << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |        0      " << std::endl;
+		std::cout << " |       /|\"    " << std::endl;
+		std::cout << " |        |      " << std::endl;
+		std::cout << " |       /       " << std::endl;
+		std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+        std::cout << " |               " << std::endl;
+		std::cout << " |               " << std::endl;
+	}  
+
         std::cout << "Would you like to guess the word (y/n)?\n";
         std::string choice;
         std::cin >> choice;
@@ -94,6 +168,17 @@ int main()
 
     if (lives <= 0) {
         std::cout << "Game Over" << std::endl;
+            std::cout << "_________________" << std::endl;
+            std::cout << " |        |      " << std::endl;
+            std::cout << " |        |      " << std::endl;
+            std::cout << " |        0      " << std::endl;
+            std::cout << " |       /|\"     " << std::endl;
+            std::cout << " |        |      " << std::endl;
+            std::cout << " |       / \"      " << std::endl;
+            std::cout << " |               " << std::endl;
+            std::cout << " |               " << std::endl;
+            std::cout << " |               " << std::endl;
+            std::cout << " |               " << std::endl;
     } else {
         std::cout << "You Win!" << std::endl;
     }
